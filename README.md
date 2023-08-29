@@ -1,3 +1,8 @@
+此仓库源地址为https://github.com/clxering/Effective-Java-3rd-edition-Chinese-English-bilingual.git
+请大家关注一下原仓库
+
+下列内容为原仓库readme
+
 # Effective-Java-3rd-edition-Chinese-English-bilingual
 Effective Java（第 3 版）各章节的中英文学习参考，希望对 Java 技术的提高有所帮助，欢迎通过 issue 或 pr 提出建议和修改意见。
 
