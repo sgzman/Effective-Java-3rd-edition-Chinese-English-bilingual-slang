@@ -52,7 +52,7 @@ With generics, the type declaration contains the information, not the comment:
 
 对于泛型，类型声明应该包含类型信息，而不是注释：
 
-```
+```java
 // Parameterized collection type - typesafe
 private final Collection<Stamp> stamps = ... ;
 ```
@@ -61,7 +61,7 @@ From this declaration, the compiler knows that stamps should contain only Stamp 
 
 从这个声明看出，编译器应该知道 stamps 应该只包含 Stamp 实例，为保证它确实如此，假设你的整个代码库编译没有发出（或抑制；详见 [Item-27](/Chapter-5/Chapter-5-Item-27-Eliminate-unchecked-warnings.md)）任何警告。当 stamps 利用一个参数化的类型进行声明时，错误的插入将生成编译时错误消息，该消息将确切地告诉你哪里出了问题：
 
-```
+```java
 Test.java:9: error: incompatible types: Coin cannot be converted
 to Stamp
 c.add(new Coin());
@@ -84,7 +84,7 @@ To make this concrete, consider the following program:
 
 为了使这一点具体些，考虑下面的程序：
 
-```
+```java
 // Fails at runtime - unsafeAdd method uses a raw type (List)!
 
 public static void main(String[] args) {
@@ -102,7 +102,7 @@ This program compiles, but because it uses the raw type List, you get a warning:
 
 该程序可以编译，但因为它使用原始类型 List，所以你会得到一个警告：
 
-```
+```java
 Test.java:10: warning: [unchecked] unchecked call to add(E) as a
 member of the raw type List
 list.add(o);
