@@ -6,7 +6,7 @@ Historically, interfaces (or, rarely, abstract classes) with a single abstract m
 
 在历史上，带有单个抽象方法的接口（或者抽象类，但这种情况很少）被用作函数类型。它们的实例（称为函数对象）表示函数或操作。自从 JDK 1.1 在 1997 年发布以来，创建函数对象的主要方法就是匿名类（[Item-24](/Chapter-4/Chapter-4-Item-24-Favor-static-member-classes-over-nonstatic.md)）。下面是一个按长度对字符串列表进行排序的代码片段，使用一个匿名类来创建排序的比较函数（它强制执行排序顺序）：
 
-```
+```java
 // Anonymous class instance as a function object - obsolete!
 Collections.sort(words, new Comparator<String>() {
     public int compare(String s1, String s2) {
@@ -133,5 +133,7 @@ In summary, as of Java 8, lambdas are by far the best way to represent small fun
 总之，在 Java 8 中，lambda 表达式是迄今为止表示小函数对象的最佳方式。**不要对函数对象使用匿名类，除非你必须创建非函数式接口类型的实例。** 另外，请记住，lambda 表达式使表示小函数对象变得非常容易，从而为 Java 以前不实用的函数式编程技术打开了大门。
 
 ---
+
 **[Back to contents of the chapter（返回章节目录）](/Chapter-7/Chapter-7-Introduction.md)**
+
 - **Next Item（下一条目）：[Item 43: Prefer method references to lambdas（方法引用优于 λ 表达式）](/Chapter-7/Chapter-7-Item-43-Prefer-method-references-to-lambdas.md)**

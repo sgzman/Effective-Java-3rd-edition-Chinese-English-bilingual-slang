@@ -6,7 +6,7 @@ Arrays differ from generic types in two important ways. First, arrays are covari
 
 数组与泛型有两个重要区别。首先，数组是协变的。这个听起来很吓人的单词的意思很简单，如果 Sub 是 Super 的一个子类型，那么数组类型 Sub[] 就是数组类型 Super[] 的一个子类型。相比之下，泛型是不变的：对于任何两个不同类型 Type1 和 Type2，`List<Type1>` 既不是 `List<Type2>` 的子类型，也不是 `List<Type2>` 的超类型 [JLS, 4.10; Naftalin07, 2.5]。你可能认为这意味着泛型是有缺陷的，但可以说数组才是有缺陷的。这段代码是合法的：
 
-```
+```java
 // Fails at runtime!
 Object[] objectArray = new Long[1];
 objectArray[0] = "I don't fit in"; // Throws ArrayStoreException
@@ -16,7 +16,7 @@ but this one is not:
 
 但这一段代码就不是：
 
-```
+```java
 // Won't compile!
 List<Object> ol = new ArrayList<Long>(); // Incompatible types
 ol.add("I don't fit in");

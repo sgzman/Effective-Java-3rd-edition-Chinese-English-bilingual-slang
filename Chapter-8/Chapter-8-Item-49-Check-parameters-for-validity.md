@@ -14,7 +14,7 @@ For public and protected methods, use the Javadoc @throws tag to document the ex
 
 对于公共方法和受保护的方法，如果在方法说明使用 Javadoc 的 `@throws` 标签记录异常，表明如果违反了对参数值的限制，将会引发该异常（[Item-74](/Chapter-10/Chapter-10-Item-74-Document-all-exceptions-thrown-by-each-method.md)）。通常，生成的异常将是 IllegalArgumentException、IndexOutOfBoundsException 或 NullPointerException（[Item-72](/Chapter-10/Chapter-10-Item-72-Favor-the-use-of-standard-exceptions.md)）。一旦你在文档中记录了方法参数上的限制，并且记录了如果违反这些限制将引发的异常，那么实施这些限制就很简单了。这里有一个典型的例子：
 
-```
+```java
 /**
 * Returns a BigInteger whose value is (this mod m). This method
 * differs from the remainder method in that it always returns a
@@ -39,14 +39,14 @@ Note that the doc comment does not say “mod throws NullPointerException if m i
 
 **在 Java 7 中添加的 `Objects.requireNonNull` 方法非常灵活和方便，因此不再需要手动执行空检查。** 如果愿意，可以指定自己的异常详细信息。该方法返回它的输入，所以你可以执行一个空检查，同时你使用一个值：
 
-```
+```java
 // Inline use of Java's null-checking facility
 this.strategy = Objects.requireNonNull(strategy, "strategy");
 ```
 
 You can also ignore the return value and use Objects.requireNonNull as a freestanding null check where that suits your needs.
 
-你还可以忽略返回值并使用 `Objects.requireNonNull` 作为一个独立的 null 检查来满足你的需要。
+你还可以忽略返回值并且使用 `Objects.requireNonNull` 作为一个独立的 null 检查来满足你的需要。
 
 In Java 9, a range-checking facility was added to java.util.Objects. This facility consists of three methods: checkFromIndexSize, checkFromToIndex, and checkIndex. This facility is not as flexible as the null-checking method. It doesn’t let you specify your own exception detail message, and it is designed solely for use on list and array indices. It does not handle closed ranges (which contain both of their endpoints). But if it does what you need, it’s a useful convenience.
 
@@ -56,7 +56,7 @@ For an unexported method, you, as the package author, control the circumstances 
 
 对于未导出的方法，作为包的作者，你应该定制方法调用的环境，因此你可以并且应该确保只传递有效的参数值。因此，非公共方法可以使用断言检查它们的参数，如下所示：
 
-```
+```java
 // Private helper function for a recursive sort
 private static void sort(long a[], int offset, int length) {
     assert a != null;
@@ -95,5 +95,7 @@ To summarize, each time you write a method or constructor, you should think abou
 总而言之，每次编写方法或构造函数时，都应该考虑参数存在哪些限制。你应该在文档中记录这些限制，并在方法主体的开头显式地检查。养成这样的习惯是很重要的。它所涉及的这一少量工作及其所花费的时间，将在有效性检查出现第一次失败时连本带利地偿还。
 
 ---
+
 **[Back to contents of the chapter（返回章节目录）](/Chapter-8/Chapter-8-Introduction.md)**
+
 - **Next Item（下一条目）：[Item 50: Make defensive copies when needed（在需要时制作防御性副本）](/Chapter-8/Chapter-8-Item-50-Make-defensive-copies-when-needed.md)**

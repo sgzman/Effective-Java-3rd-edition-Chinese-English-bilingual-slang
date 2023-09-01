@@ -16,9 +16,9 @@ A method that conceptually returns a T but may be unable to do so under certain 
 
 In Item 30, we showed this method to calculate the maximum value in a collection, according to its elements’ natural order.
 
-在 [Item-30](/Chapter-5/Chapter-5-Item-30-Favor-generic-methods.md) 中，我们展示了根据集合元素的自然顺序计算集合最大值的方法。
+在 [Item-30](/Chapter-5/Chapter-5-Item-30-Favor-generic-methods.md) 中，我们展示了根据集合元素的自然顺序来计算集合最大值的方法。
 
-```
+```java
 // Returns maximum value in collection - throws exception if empty
 public static <E extends Comparable<E>> E max(Collection<E> c) {
     if (c.isEmpty())
@@ -35,7 +35,7 @@ This method throws an IllegalArgumentException if the given collection is empty.
 
 如果给定集合为空，此方法将抛出 IllegalArgumentException。我们在 [Item-30](/Chapter-5/Chapter-5-Item-30-Favor-generic-methods.md) 中提到，更好的替代方法是返回 `Optional<E>`。
 
-```
+```java
 // Returns maximum value in collection as an Optional<E>
 public static <E extends Comparable<E>> Optional<E> max(Collection<E> c) {
     if (c.isEmpty())
@@ -161,6 +161,8 @@ In summary, if you find yourself writing a method that can’t always return a v
 总之，如果你发现自己编写的方法不能总是返回确定值，并且你认为该方法的用户在每次调用时应该考虑这种可能性，那么你可能应该让方法返回一个 Optional。但是，你应该意识到，返回 Optional 会带来实际的性能后果；对于性能关键的方法，最好返回 null 或抛出异常。最后，除了作为返回值之外，你几乎不应该以任何其他方式使用 Optional。
 
 ---
+
 **[Back to contents of the chapter（返回章节目录）](/Chapter-8/Chapter-8-Introduction.md)**
+
 - **Previous Item（上一条目）：[Item 54: Return empty collections or arrays, not nulls（返回空集合或数组，而不是 null）](/Chapter-8/Chapter-8-Item-54-Return-empty-collections-or-arrays-not-nulls.md)**
 - **Next Item（下一条目）：[Item 56: Write doc comments for all exposed API elements（为所有公开的 API 元素编写文档注释）](/Chapter-8/Chapter-8-Item-56-Write-doc-comments-for-all-exposed-API-elements.md)**

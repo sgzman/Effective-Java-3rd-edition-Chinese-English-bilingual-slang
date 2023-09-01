@@ -14,7 +14,7 @@ While it is impossible for another class to modify an object’s internal state 
 
 虽然如果没有对象的帮助，另一个类是不可能修改对象的内部状态的，但是要提供这样的帮助却出奇地容易。例如，考虑下面的类，它表示一个不可变的时间段：
 
-```
+```java
 // Broken "immutable" time period class
 public final class Period {
     private final Date start;
@@ -146,6 +146,8 @@ In summary, if a class has mutable components that it gets from or returns to it
 总而言之，如果一个类具有从客户端获取或返回给客户端的可变组件，则该类必须防御性地复制这些组件。如果复制的成本过高，并且类信任它的客户端不会不适当地修改组件，那么可以不进行防御性的复制，取而代之的是在文档中指明客户端的职责是不得修改受到影响的组件。
 
 ---
+
 **[Back to contents of the chapter（返回章节目录）](/Chapter-8/Chapter-8-Introduction.md)**
+
 - **Previous Item（上一条目）：[Item 49: Check parameters for validity（检查参数的有效性）](/Chapter-8/Chapter-8-Item-49-Check-parameters-for-validity.md)**
 - **Next Item（下一条目）：[Item 51: Design method signatures carefully（仔细设计方法签名）](/Chapter-8/Chapter-8-Item-51-Design-method-signatures-carefully.md)**
